@@ -6,9 +6,25 @@
 //
 
 #include <iostream>
+using namespace std;
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
-    return 0;
+int main() {
+    int T;
+    scanf("%d",&T);
+    for(int cases=1;cases<=T;cases++){
+        string s;
+        cin>>s;
+        int nums = 0,ans = 0;
+        for(int i=0;i<s.size();i++){
+            if(s.substr(i,4)=="KICK"){
+                nums++;
+                i+=2;
+            }
+            else if(s.substr(i,5)=="START"){
+                ans += nums;
+                i+=4;
+            }
+        }
+        printf("Case #%d: %d\n",cases,ans);
+    }
 }
